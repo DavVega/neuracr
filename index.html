@@ -10,11 +10,23 @@
     <link href="https://fonts.googleapis.com" rel="stylesheet">
     
     <style>
-        :root {
+        /*:root {
             --primary: #007bff;
             --dark: #0a192f;
             --light: #f4f7f6;
-        }
+        }*/
+   :root {
+    --primary: #00f2ff;
+    --accent: #7000ff;
+    --dark: #050a15;
+    --light: #f4f7f6; /* Tu fondo actual */
+    
+    /* Ajuste para fondo claro */
+    --card-bg: #ffffff; 
+    --card-border: #e2e8f0; 
+    --text-main: #1a202c;
+    --text-dim: #4a5568;
+}
 
         /* Smooth scrolling for the whole page */
         html {
@@ -35,7 +47,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 5%;
-            background: var(--dark);
+            background: var(--text-main);
             color: white;
             position: sticky;
             top: 0;
@@ -83,29 +95,70 @@
 
         .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 20px; line-height: 1.2; }
 
-        .btn-primary {
-            background: var(--primary);
+    .btn-primary {
+            padding: 16px 40px;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
             color: white;
-            padding: 14px 35px;
-            border-radius: 5px;
             text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: 0.4s;
             display: inline-block;
-            transition: 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0, 242, 255, 0.3);
         }
 
-        .btn-primary:hover { background: #0056b3; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .btn-primary:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0, 242, 255, 0.4); }
 
         .section { padding: 100px 10%; text-align: center; }
-        .dark { 
-            background: linear-gradient(rgba(10, 25, 47, 0.92), rgba(10, 25, 47, 0.92)), 
-                        url('https://images.unsplash.com');
-            background-size: cover;
-            background-attachment: fixed;
-            color: white; 
-        }
+  .dark { 
+    position: relative;
+    /* Gradiente profundo que nace del azul oscuro al violeta del acento */
+    background: linear-gradient(
+        135deg, 
+        rgba(5, 10, 21, 0.98) 0%, 
+        rgba(15, 23, 42, 0.95) 50%,
+        rgba(112, 0, 255, 0.05) 100% /* Un toque sutil del violeta accent */
+    ), 
+    url('https://images.unsplash.com'); /* Imagen de red neuronal/espacio */
+    
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Mantiene el efecto de desplazamiento profesional */
+    
+    color: white;
+    padding: 120px 10%;
+    text-align: center;
+    border-top: 1px solid rgba(0, 242, 255, 0.1); /* Línea de acento superior */
+    border-bottom: 1px solid rgba(112, 0, 255, 0.1); /* Línea de acento inferior */
+}
+
+/* El texto dentro de la sección oscura */
+.dark h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    /* Texto con el gradiente de tus botones */
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.dark p {
+    font-size: 1.4rem;
+    font-weight: 300;
+    letter-spacing: 5px; /* Más espaciado para un look más premium/minimalista */
+    color: #cbd5e1;
+    text-transform: uppercase;
+}
+
+/* Efecto de resplandor sutil en el fondo */
+.dark::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(0, 242, 255, 0.03), transparent 70%);
+    pointer-events: none;
+}
 
         .grid {
             display: grid;
@@ -114,32 +167,210 @@
             margin-top: 50px;
         }
 
-        .card {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            transition: 0.3s;
-        }
 
-        .card:hover { transform: translateY(-10px); }
+.card {
+    position: relative;
+    background: var(--card-bg);
+    padding: 45px 40px;
+    border-radius: 24px;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    
+    /* Borde inicial con el color primary del botón muy suave */
+    border: 1px solid var(--card-border);
+    
+    /* Sombra profunda para que resalte sobre el fondo dark */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    overflow: hidden;
+    z-index: 1;
+}
 
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            max-width: 550px;
-            margin: 50px auto;
-            gap: 15px;
-        }
+.card:hover {
+    transform: translateY(-12px);
+    
+    /* Mantenemos el fondo original de la variable */
+    background: var(--card-bg); 
+    
+    /* Iluminamos el borde con el Cyan del botón */
+    border-color: var(--accent);
+    
+    /* El brillo exterior (glow) */
+    box-shadow: 0 15px 40px rgba(131, 117, 190, 0.2);
+}
 
-        .contact-form input, .contact-form textarea {
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-family: inherit;
-        }
 
-        footer { background: var(--dark); color: white; padding: 40px 20px; text-align: center; }
+/* El título usa el mismo gradiente que el cuerpo del botón */
+.card h3 {
+    background: linear-gradient(45deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 18px;
+    letter-spacing: -0.5px;
+}
+
+.card p {
+    color: var(--text-dim);
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+/* El indicador inferior es el botón primary estirado */
+.card::after {
+    content: "";
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0%; height: 4px;
+    background: linear-gradient(45deg, var(--primary), var(--accent));
+    transition: width 0.5s ease;
+}
+
+.card:hover::after {
+    width: 100%;
+}
+
+/* Efecto de luz interna que nace del color del botón */
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at top left, rgba(0, 242, 255, 0.05), transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Contenedor del Formulario */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 50px;
+    gap: 20px;
+    background: var(--text-dim); 
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* Inputs y Textarea Estilo Tech - CORREGIDO */
+.contact-form input, 
+.contact-form textarea {
+    padding: 18px;
+    background: rgba(255, 255, 255, 0.05); /* Un poco más de opacidad para ver el campo */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    
+    /* CAMBIO CLAVE: Color blanco para que se lea sobre el fondo oscuro */
+    color: #ffffff; 
+    
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+/* Efecto de Foco */
+.contact-form input:focus, 
+.contact-form textarea:focus {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--primary); 
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
+    transform: translateY(-2px);
+    color: #ffffff; /* Aseguramos que siga siendo blanco */
+}
+
+/* Placeholder - CORREGIDO */
+.contact-form input::placeholder, 
+.contact-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5); /* Blanco semitransparente */
+}
+
+/* Botón de Envío - CORREGIDO */
+.contact-form button {
+    margin-top: 10px;
+    padding: 18px;
+    background: linear-gradient(45deg, var(--primary), var(--accent));
+    
+    /* CAMBIO CLAVE: Texto blanco o muy claro para que resalte en el gradiente */
+    color: #ffffff; 
+    
+    border: none;
+    border-radius: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 25px rgba(0, 242, 255, 0.2);
+}
+
+.contact-form button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(0, 242, 255, 0.4);
+    filter: brightness(1.2); /* Un poco más de brillo en hover */
+}
+
+/* Título de la sección */
+#contacto h2 {
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+/* Título de la Sección de Servicios */
+#servicios h2 {
+    font-size: 3rem;           /* Tamaño impactante */
+    font-weight: 800;          /* Grosor extra para autoridad */
+    text-align: center;
+    margin-bottom: 50px;
+    letter-spacing: -1px;      /* Espaciado moderno y compacto */
+    
+    /* Aplicamos el gradiente de tus botones al texto */
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Línea de acento sutil debajo del título */
+#servicios h2::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 25%;                 /* Línea centrada y más corta que el texto */
+    width: 50%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    border-radius: 10px;
+    opacity: 0.3;              /* Transparente para no distraer demasiado */
+}
+
+/* Ajuste del contenedor de la sección para que el texto luzca */
+#servicios {
+    padding: 120px 20px;       /* Más aire (espacio blanco) es más lujoso */
+    background-color: var(--light); 
+    color: #1a202c;            /* Texto base oscuro para legibilidad */
+}
+
+
+.grid {
+    position: relative; /* Asegura que el contenido flote sobre el blur */
+    z-index: 1;
+}
+
+      footer { background: var(--dark); color: white; padding: 40px 20px; text-align: center; }
 
         /* --- BOTÓN SUBIR (Back to Top) --- */
         #scrollTopBtn {
@@ -151,8 +382,8 @@
             font-size: 24px;
             border: none;
             outline: none;
-            background-color: var(--primary);
-            color: white;
+            background-color: var(--card-border);
+            color: rgb(4, 4, 4);
             cursor: pointer;
             padding: 10px 18px;
             border-radius: 50px;
@@ -161,7 +392,7 @@
         }
 
         #scrollTopBtn:hover {
-            background-color: #333;
+            background-color: var(--accent);
             transform: translateY(-5px);
         }
 
@@ -219,7 +450,7 @@
     </section>
 
  <section id="contacto" class="section">
-    <h2>Contacto</h2>
+    <h2>Comienza aqui:</h2>
     <!-- Reemplaza el ID de abajo después de recibir el primer correo -->
     <form action="https://formspree.io" method="POST" id="contactForm" class="contact-form">
         <input type="text" name="nombre" placeholder="Nombre completo" required>
@@ -297,5 +528,24 @@
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
     </script>
+      <script>
+        // Animaciones de entrada
+        ScrollReveal().reveal('.card', { 
+            delay: 200, 
+            distance: '50px',
+            origin: 'bottom',
+            interval: 100 
+        });
+
+        ScrollReveal().reveal('.hero-content', { delay: 100, origin: 'left', distance: '100px' });
+
+        // Botón Scroll
+        const btn = document.getElementById("scrollTopBtn");
+        window.onscroll = function() {
+            btn.style.display = (window.scrollY > 500) ? "flex" : "none";
+        };
+        btn.onclick = () => window.scrollTo({top: 0, behavior: 'smooth'});
+    </script>
+
 </body>
 </html>
