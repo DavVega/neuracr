@@ -10,42 +10,68 @@
     <link href="https://fonts.googleapis.com" rel="stylesheet">
     <!-- Font Awesome para el cerebro -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="./css/styles.css">
-    <script src="https://unpkg.com"></script>
 
-    <style>
-        /* Ajustes específicos para la nueva estrategia */
-        .highlight-neuro {
-            color: #007bff;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            display: block;
-            margin-bottom: 10px;
-        }
-        .card h3 i {
-            margin-right: 10px;
-            color: #007bff;
-        }
-        .hero-content h1 {
-            line-height: 1.2;
-        }
-    </style>
+ <!-- CARGA LOCAL DE LA LIBRERÍA (Asegúrate que el archivo esté en la misma carpeta) -->
+    <script src="https://unpkg.com"></script>
+    <script src="./js/particles.min.js"></script>
+    <script src="./js/app.js"></script>
+
 </head>
 <body>
+<header id="top">
+<nav class="navbar">
+    <div class="logo">Neura<span>CR</span></div>
 
-    <header id="top">
-        <nav class="navbar">
-            <div class="logo">Neura<span>CR</span></div>
-            <ul class="nav-links">
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#metodo">Método</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
+    <ul class="nav-links">
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#metodo">Método</a></li>
+
+   <li class="dropdown">
+    <a href="#">Productos ▾</a>
+    <ul class="dropdown-menu">
+        <li class="sub-dropdown">
+            <a href="#" id="flowybot-link">
+                <i class="fa-solid fa-robot"></i>
+                FlowyBot | Citas
+            </a>
+        </li>
+    </ul>
+</li>
+        <li><a href="#contacto">Contacto</a></li>
+    </ul>
+</nav>
+</header>
+<!-- MODAL -->
+<div id="flowybot-modal" class="info-modal">
+    <div class="info-content">
+        <span class="close-modal">&times;</span>
+
+        <h3>FlowyBot</h3>
+        <img src="./images/flowybot.png" height="200" width="300"></img>
+        <ul>
+            <li> ✔ Agenda automática 24/7</li>
+            <li> ✔ Confirmaciones inteligentes</li>
+            <li> ✔ Recordatorios automáticos</li>
+            <li> ✔ Personalizacion de Servicios, Horarios, Espacios</li>
+            <li> ✔ Cancelacion sin coste adicional (Solo citas confirmadas)</li>
+        </ul>
+
+        <br>
+<a href="#" id="open-google-form" class="btn-primary">
+    Solicitar Demo
+</a>    </div>
+<div id="google-form-container" class="form-wrapper">
+    <div class="form-inner">
+        <iframe 
+            src="https://forms.gle/iMpT8YpLE7dbJjiC8"
+            frameborder="0">
+            Cargando…
+        </iframe>
+    </div>
+</div>
+</div>
 
     <!-- Botón para subir -->
     <button onclick="scrollToTop()" id="scrollTopBtn" title="Subir al inicio">↑</button>
@@ -55,7 +81,7 @@
         <div class="hero-content">
             <span class="highlight-neuro">Tecnología inspirada en el rendimiento humano</span>
             <h1>Automatización Inteligente.<br>Resultados sin fricción.</h1>
-            <p>Diseñamos flujos de trabajo que eliminan la fatiga digital y potencian el enfoque de su equipo mediante neuro-optimización.</p>
+            <p>Diseñamos flujos de trabajo que eliminan procesos ineficientes y potencian el enfoque de su negocio mediante neuro-optimización.</p>
             <br>
             <a href="#contacto" class="btn-primary">Optimizar mi Negocio</a>
         </div>
@@ -66,24 +92,28 @@
         <div class="grid">
             <div class="card">
                 <h3><i class="fa-solid fa-microchip"></i>Automatización</h3>
-                <p>Eliminamos tareas repetitivas para liberar el ancho de banda mental de su equipo.</p>
+                <p>Eliminamos tareas repetitivas para liberar el ancho de banda de sus recursos (equipos, infraestructura,etc).</p>
             </div>
             <div class="card">
                 <h3><i class="fa-solid fa-brain"></i>Neuro-Optimización</h3>
                 <p>Reducimos la fricción cognitiva en sus procesos para mejorar la toma de decisiones.</p>
             </div>
-            <div class="card">
-                <h3>Facilitador de Integración</h3>
-            <p>Facilitamos la conexión entre sus herramientas actuales para que hablen entre sí hoy mismo.</p>            </div>
-        </div>
-    </section>
+<div class="card">
+    <h3>
+        <i class="fa-solid fa-diagram-project"></i>
+        Facilitador de Integración
+    </h3>
+    <p>
+        Facilitamos la conexión entre sus herramientas actuales para que hablen entre sí hoy mismo.
+    </p>
+</div>    </section>
 
 <section id="metodo" class="section dark">
 <div class="logo">
     <h2>Método Neura<span class="highlight">CR</span></h2>
 </div>    
     <div class="metodo-texto">
-        <span class="metodo-step" data-info="Detectamos cuellos de botella y puntos de fricción mental.">DIAGNÓSTICO COGNITIVO</span>
+        <span class="metodo-step" data-info="Detectamos cuellos de botella y puntos de fricción en sus procesos.">DIAGNÓSTICO COGNITIVO</span>
         <span class="separador">•</span>
         <span class="metodo-step" data-info="Diseñamos flujos que respetan el enfoque humano.">DISEÑO DE FLUJO</span>
         <span class="separador">•</span>
@@ -133,93 +163,5 @@
         </div>
     </div>
 </footer>
-
- <!-- CARGA LOCAL DE LA LIBRERÍA (Asegúrate que el archivo esté en la misma carpeta) -->
-    <script src="./js/particles.min.js"></script>
-
-    <script>
-        // --- CONFIGURACIÓN DE PARTÍCULAS ---
-        window.onload = function() {
-            if (typeof particlesJS !== "undefined") {
-                particlesJS("particles-js", {
-                    "particles": {
-                        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-                        "color": { "value": "#007bff" },
-                        "shape": { "type": "circle" },
-                        "opacity": { "value": 0.5 },
-                        "size": { "value": 3, "random": true },
-                        "line_linked": { "enable": true, "distance": 150, "color": "#007bff", "opacity": 0.4, "width": 1 },
-                        "move": { "enable": true, "speed": 2 }
-                    },
-                    "interactivity": {
-                        "detect_on": "canvas",
-                        "events": { "onhover": { "enable": true, "mode": "grab" } }
-                    },
-                    "retina_detect": true
-                });
-            } else {
-                console.error("No se encontró el archivo particles.min.js.");
-            }
-        };
-        const form = document.getElementById("contactForm");
-        form.addEventListener("submit", async (e) => {
-            e.preventDefault();
-            const data = new FormData(form);
-            const response = await fetch(form.action, {
-                method: 'POST',
-                body: data,
-                headers: { 'Accept': 'application/json' }
-            });
-            if (response.ok) {
-                alert("¡Mensaje enviado con éxito!");
-                form.reset();
-            }
-        });
-
-        // --- LÓGICA DEL BOTÓN SUBIR ---
-        let mybutton = document.getElementById("scrollTopBtn");
-
-        // Mostrar el botón cuando se baja 300px
-        window.onscroll = function() {
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                mybutton.style.display = "block";
-            } else {
-                mybutton.style.display = "none";
-            }
-        };
-
-        // Función para ir arriba
-        function scrollToTop() {
-            window.scrollTo({top: 0, behavior: 'smooth'});
-        }
-    </script>
-      <script>
-        // Animaciones de entrada
-        ScrollReveal().reveal('.card', { 
-            delay: 200, 
-            distance: '50px',
-            origin: 'bottom',
-            interval: 100 
-        });
-// Añade esto a tu bloque de scripts
-ScrollReveal().reveal('.metodo-texto span', {
-    distance: '20px',
-    origin: 'bottom',
-    opacity: 0,
-    interval: 300, // Hace que aparezcan una tras otra (cascada)
-    delay: 500
-});
-
-        ScrollReveal().reveal('.hero-content', { delay: 100, origin: 'left', distance: '100px' });
-
-        // Botón Scroll
-        const btn = document.getElementById("scrollTopBtn");
-        window.onscroll = function() {
-            btn.style.display = (window.scrollY > 500) ? "flex" : "none";
-        };
-        btn.onclick = () => window.scrollTo({top: 0, behavior: 'smooth'});
-    </script>
-
-
 </body>
 </html>
