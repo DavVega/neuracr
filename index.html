@@ -134,35 +134,92 @@
     </div>
 </footer>
 
-<script src="./js/particles.min.js"></script>
+ <!-- CARGA LOCAL DE LA LIBRERÍA (Asegúrate que el archivo esté en la misma carpeta) -->
+    <script src="./js/particles.min.js"></script>
 
-<script>
-    // Partículas y lógica de envío (se mantienen igual a tu original)
-    window.onload = function() {
-        if (typeof particlesJS !== "undefined") {
-            particlesJS("particles-js", {
-                "particles": {
-                    "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-                    "color": { "value": "#007bff" },
-                    "shape": { "type": "circle" },
-                    "opacity": { "value": 0.5 },
-                    "size": { "value": 3, "random": true },
-                    "line_linked": { "enable": true, "distance": 150, "color": "#007bff", "opacity": 0.4, "width": 1 },
-                    "move": { "enable": true, "speed": 2 }
-                }
+    <script>
+        // --- CONFIGURACIÓN DE PARTÍCULAS ---
+        window.onload = function() {
+            if (typeof particlesJS !== "undefined") {
+                particlesJS("particles-js", {
+                    "particles": {
+                        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                        "color": { "value": "#007bff" },
+                        "shape": { "type": "circle" },
+                        "opacity": { "value": 0.5 },
+                        "size": { "value": 3, "random": true },
+                        "line_linked": { "enable": true, "distance": 150, "color": "#007bff", "opacity": 0.4, "width": 1 },
+                        "move": { "enable": true, "speed": 2 }
+                    },
+                    "interactivity": {
+                        "detect_on": "canvas",
+                        "events": { "onhover": { "enable": true, "mode": "grab" } }
+                    },
+                    "retina_detect": true
+                });
+            } else {
+                console.error("No se encontró el archivo particles.min.js.");
+            }
+        };
+        const form = document.getElementById("contactForm");
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const data = new FormData(form);
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: data,
+                headers: { 'Accept': 'application/json' }
             });
+            if (response.ok) {
+                alert("¡Mensaje enviado con éxito!");
+                form.reset();
+            }
+        });
+
+        // --- LÓGICA DEL BOTÓN SUBIR ---
+        let mybutton = document.getElementById("scrollTopBtn");
+
+        // Mostrar el botón cuando se baja 300px
+        window.onscroll = function() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        };
+
+        // Función para ir arriba
+        function scrollToTop() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
         }
-    };
+    </script>
+      <script>
+        // Animaciones de entrada
+        ScrollReveal().reveal('.card', { 
+            delay: 200, 
+            distance: '50px',
+            origin: 'bottom',
+            interval: 100 
+        });
+// Añade esto a tu bloque de scripts
+ScrollReveal().reveal('.metodo-texto span', {
+    distance: '20px',
+    origin: 'bottom',
+    opacity: 0,
+    interval: 300, // Hace que aparezcan una tras otra (cascada)
+    delay: 500
+});
 
-    // Animaciones mejoradas
-    ScrollReveal().reveal('.card', { delay: 200, distance: '50px', origin: 'bottom', interval: 150 });
-    ScrollReveal().reveal('.metodo-step', { delay: 400, opacity: 0, interval: 200 });
-    ScrollReveal().reveal('.hero-content', { delay: 100, origin: 'left', distance: '50px' });
+        ScrollReveal().reveal('.hero-content', { delay: 100, origin: 'left', distance: '100px' });
 
-    function scrollToTop() {
-        window.scrollTo({top: 0, behavior: 'smooth'});
-    }
-</script>
+        // Botón Scroll
+        const btn = document.getElementById("scrollTopBtn");
+        window.onscroll = function() {
+            btn.style.display = (window.scrollY > 500) ? "flex" : "none";
+        };
+        btn.onclick = () => window.scrollTo({top: 0, behavior: 'smooth'});
+    </script>
+
 
 </body>
 </html>
