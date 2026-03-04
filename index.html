@@ -3,32 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NeuraCR | Automatización e Inteligencia Cognitiva</title>
+    <title>NeuraCR | NeuroAutomatización e Inteligencia Cognitiva</title>
     <meta name="description" content="Expertos en neuro-optimización de procesos. Automatizamos flujos de trabajo reduciendo la fricción cognitiva para empresas escalables.">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com" rel="stylesheet">
-    <!-- Font Awesome para el cerebro -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="./css/styles.css">
-
- <!-- CARGA LOCAL DE LA LIBRERÍA (Asegúrate que el archivo esté en la misma carpeta) -->
-    <script src="https://unpkg.com"></script>
-    <script src="./js/particles.min.js"></script>
-    <script src="./js/app.js"></script>
-
 </head>
+
 <body>
+
 <header id="top">
 <nav class="navbar">
-    <div class="logo">Neura<span>CR</span></div>
+
+    <div class="logo">
+        <div class="logo-main">
+            Neura<span href="https://www.neuracr.net">CR</span>
+        </div>
+    </div>
 
     <ul class="nav-links">
         <li><a href="#servicios">Servicios</a></li>
         <li><a href="#metodo">Método</a></li>
-
-   <li class="dropdown">
+        <li class="dropdown">
     <a href="#">Productos ▾</a>
     <ul class="dropdown-menu">
         <li class="sub-dropdown">
@@ -72,64 +69,115 @@
     </div>
 </div>
 </div>
+<button onclick="scrollToTop()" id="scrollTopBtn" title="Subir al inicio" style="display: flex;">↑</button>
 
-    <!-- Botón para subir -->
-    <button onclick="scrollToTop()" id="scrollTopBtn" title="Subir al inicio">↑</button>
+<!-- HERO -->
+<section class="hero">
+    <div id="particles-js"></div>
+    <div class="hero-content">
 
-    <section class="hero">
-        <div id="particles-js"></div>
-        <div class="hero-content">
-            <span class="highlight-neuro">Tecnología inspirada en el rendimiento humano</span>
-            <h1>Automatización Inteligente.<br>Resultados sin fricción.</h1>
-            <p>Diseñamos flujos de trabajo que eliminan procesos ineficientes y potencian el enfoque de su negocio mediante neuro-optimización.</p>
-            <br>
-            <a href="#contacto" class="btn-primary">Optimizar mi Negocio</a>
-        </div>
-    </section>
+        <span class="highlight-neuro">
+            Tecnología inspirada en el rendimiento humano
+        </span>
 
-    <section id="servicios" class="section">
-        <h2>Servicios de Alto Impacto</h2>
-        <div class="grid">
-            <div class="card">
-                <h3><i class="fa-solid fa-microchip"></i>Automatización</h3>
-                <p>Eliminamos tareas repetitivas para liberar el ancho de banda de sus recursos (equipos, infraestructura,etc).</p>
-            </div>
-            <div class="card">
-                <h3><i class="fa-solid fa-brain"></i>Neuro-Optimización</h3>
-                <p>Reducimos la fricción cognitiva en sus procesos para mejorar la toma de decisiones.</p>
-            </div>
-<div class="card">
-    <h3>
-        <i class="fa-solid fa-diagram-project"></i>
-        Facilitador de Integración
-    </h3>
-    <p>
-        Facilitamos la conexión entre sus herramientas actuales para que hablen entre sí hoy mismo.
-    </p>
-</div>    </section>
+        <h1>
+            Soluciones Cognitivas.<br>
+            Resultados sin Fricción.
+        </h1>
 
-<section id="metodo" class="section dark">
-<div class="logo">
-    <h2>Método Neura<span class="highlight">CR</span></h2>
-</div>    
-    <div class="metodo-texto">
-        <span class="metodo-step" data-info="Detectamos cuellos de botella y puntos de fricción en sus procesos.">DIAGNÓSTICO COGNITIVO</span>
-        <span class="separador">•</span>
-        <span class="metodo-step" data-info="Diseñamos flujos que respetan el enfoque humano.">DISEÑO DE FLUJO</span>
-        <span class="separador">•</span>
-        <span class="metodo-step" data-info="Implementamos tecnología de baja fricción.">DESPLIEGUE</span>
-        <span class="separador">•</span>
-        <span class="metodo-step" data-info="Monitoreamos la eficiencia y el rendimiento real.">EVOLUCIÓN</span>
+        <p>
+            Transformamos fricción operativa en soluciones estratégicas, automatizables y sostenibles.
+        </p>
+
+        <br>
+
+        <a href="#contacto" class="btn-primary">
+            Optimizar mi Negocio
+        </a>
+
     </div>
 </section>
 
+<!-- SERVICIOS -->
+<section id="servicios" class="section">
+    <h2>Servicios de Alto Impacto</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3><i class="fa-solid fa-microchip"></i> Automatización</h3>
+            <p>Eliminamos tareas repetitivas para liberar recursos y optimizar operaciones.</p>
+        </div>
+
+        <div class="card">
+            <h3><i class="fa-solid fa-brain"></i> Neuro-Optimización</h3>
+            <p>Reducimos la fricción cognitiva para mejorar la toma de decisiones.</p>
+        </div>
+
+        <div class="card">
+            <h3><i class="fa-solid fa-diagram-project"></i> Integración Estratégica</h3>
+            <p>Conectamos herramientas y sistemas para lograr interoperabilidad eficiente.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- MÉTODO -->
+<section id="metodo" class="section dark">
+
+<div class="metodo-container">
+
+    <div class="metodo-header">
+        <h2>Método Neura<span class="highlight">CR</span></h2>
+
+        <p class="metodo-subtitle">
+            Nuestro enfoque convierte la complejidad operativa en soluciones cognitivas inteligentes, medibles y escalables.
+        </p>
+    </div>
+
+    <div class="metodo-timeline">
+
+        <div class="metodo-step" data-info="Analizamos fricción operativa y oportunidades de mejora estructural.">
+            <div class="step-icon">
+                <i class="fas fa-brain"></i>
+            </div>
+            <h3>Diagnóstico Cognitivo</h3>
+        </div>
+
+        <div class="metodo-step" data-info="Diseñamos arquitecturas de flujo optimizadas y alineadas al negocio.">
+            <div class="step-icon">
+                <i class="fas fa-diagram-project"></i>
+            </div>
+            <h3>Diseño de Flujo</h3>
+        </div>
+
+        <div class="metodo-step" data-info="Implementamos automatización e integración tecnológica.">
+            <div class="step-icon">
+                <i class="fas fa-rocket"></i>
+            </div>
+            <h3>Despliegue</h3>
+        </div>
+
+        <div class="metodo-step" data-info="Monitoreamos y optimizamos continuamente para asegurar escalabilidad.">
+            <div class="step-icon">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Optimización Continua</h3>
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+<!-- CONTACTO -->
 <section id="contacto" class="section">
     <h2>Inicie su transformación</h2>
     <p style="text-align: center; margin-bottom: 2rem;">Descubra cómo la automatización inteligente puede potenciar su ROI.</p>
     <form action="https://formspree.io" method="POST" id="contactForm" class="contact-form">
-        <input type="text" name="nombre" placeholder="Nombre completo" required>
-        <input type="email" name="email" placeholder="Correo corporativo" required>
-        <textarea name="mensaje" placeholder="Describa el proceso que desea optimizar..." rows="4" required></textarea>
+        <input type="text" name="nombre" placeholder="Nombre completo" required="">
+        <input type="email" name="email" placeholder="Correo corporativo" required="">
+        <textarea name="mensaje" placeholder="Describa el proceso que desea optimizar..." rows="4" required=""></textarea>
         
         <input type="text" name="_gotcha" style="display:none">
         
@@ -141,27 +189,39 @@
         </div>
     </form>
 </section>
-
+<!-- FOOTER -->
 <footer class="footer-moderno">
+
     <div class="footer-content">
-        <p>© 2026 NeuraCR. Paraiso, Cartago - Costa Rica.</p>
+        <p>© 2026 NeuraCR. Paraíso, Cartago - Costa Rica.</p>
+
         <div class="social-icons">
-<div class="social-icons">
-    <a href="#" target="_blank" class="social-link">
-        <img src="./images/facebook.svg" alt="Facebook" class="social-img" height="10">
-    </a>
-    <a href="#" target="_blank" class="social-link">
-        <img src="./images/instagram.svg" alt="Instagram" class="social-img">
-    </a>
-    <a href="#" target="_blank" class="social-link">
-        <img src="./images/linkedin.svg" alt="LinkedIn" class="social-img">
-    </a>
-    <a href="https://wa.me" target="_blank" class="social-link">
-        <img src="./images/whatsapp.svg" alt="WhatsApp" class="social-img">
-    </a>
-</div>
+            <a href="#" class="social-link">
+                <img src="./images/facebook.svg" alt="Facebook" class="social-img">
+            </a>
+            <a href="#" class="social-link">
+                <img src="./images/instagram.svg" alt="Instagram" class="social-img">
+            </a>
+            <a href="#" class="social-link">
+                <img src="./images/linkedin.svg" alt="LinkedIn" class="social-img">
+            </a>
+            <a href="https://wa.me/50672679082" class="social-link">
+                <img src="./images/whatsapp.svg" alt="WhatsApp" class="social-img">
+            </a>
         </div>
+
     </div>
+
 </footer>
+
+<script src="./js/particles.min.js"></script>
+<script src="./js/app.js"></script>
+
+<script>
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
+</script>
+
 </body>
 </html>

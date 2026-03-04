@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("contactForm");
 
     if (form) {
-        form.addEventListener("submit", async (e) => {
+        form.addEventListener("submit", async function (e) {
             e.preventDefault();
 
             const data = new FormData(form);
@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 } else {
                     alert("Hubo un problema al enviar el mensaje.");
                 }
+
             } catch (error) {
                 console.error("Error:", error);
             }
@@ -65,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (scrollBtn) {
         window.addEventListener("scroll", function () {
-            scrollBtn.style.display = (window.scrollY > 500) ? "flex" : "none";
+            scrollBtn.style.display = window.scrollY > 500 ? "flex" : "none";
         });
 
         scrollBtn.addEventListener("click", function () {
@@ -76,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // ================================
     // SCROLL REVEAL
     // ================================
-    if (typeof ScrollReveal !== "undefined") {
+    /*if (typeof ScrollReveal !== "undefined") {
 
         ScrollReveal().reveal('.card', {
             delay: 200,
@@ -85,20 +86,12 @@ document.addEventListener("DOMContentLoaded", function () {
             interval: 100
         });
 
-        ScrollReveal().reveal('.metodo-texto span', {
-            distance: '20px',
-            origin: 'bottom',
-            opacity: 0,
-            interval: 300,
-            delay: 500
-        });
-
         ScrollReveal().reveal('.hero-content', {
             delay: 100,
             origin: 'left',
             distance: '100px'
         });
-    }
+    }*/
 
     // ================================
     // MODAL FLOWYBOT
@@ -124,36 +117,43 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
-// ================================
-// EXPANDIR GOOGLE FORM
-// ================================
-const openFormBtn = document.getElementById("open-google-form");
-const formContainer = document.getElementById("google-form-container");
 
-if (openFormBtn && formContainer) {
-    openFormBtn.addEventListener("click", function(e) {
-        e.preventDefault();
-        formContainer.style.display = "block";
-        openFormBtn.style.display = "none"; // oculta el botón
-    });
-}
+    // ================================
+    // GOOGLE FORM TOGGLE
+    // ================================
+    const openFormBtn = document.getElementById("open-google-form");
+    const formContainer = document.getElementById("google-form-container");
 
-    if (openBtn && formContainer) {
-        openBtn.addEventListener("click", function(e) {
+    if (openFormBtn && formContainer) {
+        openFormBtn.addEventListener("click", function (e) {
             e.preventDefault();
 
-            if (formContainer.style.display === "block") {
-                formContainer.style.display = "none";
-            } else {
-                formContainer.style.display = "block";
-            }
+            const isVisible = formContainer.style.display === "block";
+
+            formContainer.style.display = isVisible ? "none" : "block";
+            openFormBtn.style.display = isVisible ? "inline-block" : "none";
         });
     }
-        if (e.target === modal) {
-        modal.classList.remove("active");
 
-        // 🔥 Reset del formulario y botón
-        formContainer.style.display = "none";
-        openFormBtn.style.display = "inline-block";
+    // ================================
+    // MÉTODO SECUENCIAL
+    // ================================
+    const steps = document.querySelectorAll(".metodo-step");
+    let current = 0;
+
+    if (steps.length) {
+
+        function showStep(index) {
+            steps.forEach(step => step.classList.remove("active"));
+            steps[index].classList.add("active");
+        }
+
+        showStep(current);
+
+        setInterval(function () {
+            current = (current + 1) % steps.length;
+            showStep(current);
+        }, 3000);
     }
+
 });

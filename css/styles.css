@@ -20,15 +20,36 @@
   position: relative;
 }
 
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: #0b1220;
+}
+
 .logo {
-  font-size: 22px;
-  font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
 }
 
-.logo span {
-  color: #38bdf8;
+.logo-main {
+    font-size: 26px;
+    font-weight: 700;
+    color: white;
 }
 
+.logo-main span {
+    color: #00c2ff;
+}
+
+.logo-sub {
+    font-size: 12px;
+    color: #9ca3af;
+    margin-top: 4px;
+    letter-spacing: 0.8px;
+}
 .nav-links {
   list-style: none;
   display: flex;
@@ -62,6 +83,7 @@
 
 .section.dark {
   background: #1e293b;
+  height: 1000;
 }
 
 .grid {
@@ -644,18 +666,6 @@ footer { background: var(--dark); color: white; padding: 40px 20px; text-align: 
             flex-direction: column;
         }
     }
-.metodo-texto {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 30px;
-    font-size: 1.3rem;
-    font-weight: 300;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-}
 
 .metodo-texto {
     display: flex;
@@ -670,63 +680,62 @@ footer { background: var(--dark); color: white; padding: 40px 20px; text-align: 
     text-transform: uppercase;
 }
 
-/* 1. Base Step with "Interactive" hint */
+/* Step base */
 .metodo-step {
-    display: inline-block;
     position: relative;
-    color: rgba(255, 255, 255, 0.25);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    cursor: pointer;
-    /* Subtle breathing animation to hint interactivity */
-    animation: hint-pulse 3s infinite ease-in-out;
+    opacity: 0;
+    transition: opacity 0.6s ease;
 }
 
-/* 2. Tooltip (Hidden by default) */
+/* Mostrar activo */
+.metodo-step.active {
+    opacity: 1;
+}
+
+/* Tooltip base (SIEMPRE debe existir) */
 .metodo-step::after {
     content: attr(data-info);
     position: absolute;
-    top: 160%;
+    top: 115%;
     left: 50%;
-    transform: translateX(-50%) translateY(-10px);
-    background: linear-gradient(135deg, #00d2ff 0%, #00a1ff 100%);
-    color: white;
-    padding: 10px 18px;
-    border-radius: 6px;
+    transform: translateX(-50%) translateY(-8px);
+
+    width: max-content;
+    max-width: 260px;
+
+    background: linear-gradient(135deg, #00d2ff, #00a1ff);
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 10px;
+
     font-size: 0.85rem;
-    font-weight: 500;
-    white-space: nowrap;
+    line-height: 1.4;
+
+    white-space: normal;
+    text-align: center;
+
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
-    pointer-events: none;
-    letter-spacing: 0;
-    box-shadow: 0 10px 25px rgba(0, 210, 255, 0.3);
+
     z-index: 20;
 }
 
-/* 3. The "Hover" trigger - Strongest visual change */
-.metodo-step:hover {
-    color: #00d2ff;
-    transform: scale(1.15); /* Pop effect */
-    text-shadow: 0 0 20px rgba(0, 210, 255, 0.8);
-    animation-play-state: paused; /* Stop pulsing when focused */
-}
-
+/* Mostrar solo en hover */
 .metodo-step:hover::after {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(0);
 }
-
-/* 4. Subtle Hint Animation (Breathing) */
+/* Animación suave */
 @keyframes hint-pulse {
-    0%, 100% { 
-        color: rgba(255, 255, 255, 0.25); 
+    0%, 100% {
+        color: rgba(255, 255, 255, 0.4);
         text-shadow: none;
     }
-    50% { 
-        color: rgba(255, 255, 255, 0.45); 
-        text-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+    50% {
+        color: rgba(255, 255, 255, 0.6);
+        text-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
     }
 }
 
@@ -745,6 +754,8 @@ footer { background: var(--dark); color: white; padding: 40px 20px; text-align: 
         text-align: center;
     }
 }
+
+
 .info-modal {
     display: none;
 }
@@ -878,4 +889,114 @@ footer { background: var(--dark); color: white; padding: 40px 20px; text-align: 
 }
 .hero-content h1 {
     line-height: 1.2;
+}
+.section.dark {
+  background: linear-gradient(135deg, #0f172a, #0b1120);
+  padding: 120px 10%;
+  color: #e5e7eb;
+  position: relative;
+  overflow: hidden;
+}
+
+.metodo-container {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+.metodo-header h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.highlight {
+  color: #3b82f6;
+}
+
+.metodo-subtitle {
+  color: #94a3b8;
+  margin-bottom: 80px;
+  font-size: 1.1rem;
+}
+
+/* Timeline */
+
+.metodo-timeline {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 60px;
+}
+
+.metodo-timeline::before {
+  content: "";
+  position: absolute;
+  top: 50px;
+  left: 5%;
+  width: 90%;
+  height: 2px;
+  background: linear-gradient(to right, #3b82f6, #06b6d4);
+  opacity: 0.3;
+}
+
+/* Steps */
+
+.metodo-step {
+  width: 22%;
+  cursor: pointer;
+  transition: 0.4s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.step-icon {
+  width: 90px;
+  height: 90px;
+  margin: auto;
+  border-radius: 50%;
+  background: rgba(59,130,246,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: #3b82f6;
+  transition: 0.4s ease;
+  border: 1px solid rgba(59,130,246,0.2);
+}
+
+.metodo-step h3 {
+  margin-top: 20px;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #cbd5e1;
+}
+
+/* Hover inteligente */
+
+.metodo-step:hover .step-icon {
+  background: #3b82f6;
+  color: white;
+  box-shadow: 0 0 25px rgba(59,130,246,0.6);
+  transform: translateY(-10px);
+}
+
+.metodo-step:hover h3 {
+  color: white;
+}
+
+/* Info panel */
+
+.metodo-info {
+  margin-top: 40px;
+  padding: 20px 30px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.05);
+  color: #94a3b8;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: 0.3s ease;
 }
