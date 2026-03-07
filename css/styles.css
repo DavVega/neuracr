@@ -951,8 +951,8 @@ footer { background: var(--dark); color: white; padding: 40px 20px; text-align: 
 }
 
 .step-icon {
-  width: 90px;
-  height: 90px;
+  width: 120px;
+  height: 120px;
   margin: auto;
   border-radius: 50%;
   background: rgba(59,130,246,0.1);
