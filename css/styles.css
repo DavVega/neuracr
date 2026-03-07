@@ -722,7 +722,7 @@ footer { background: var(--dark); color: white; padding: 40px 20px; text-align: 
 }
 
 /* Mostrar solo en hover */
-.metodo-step:hover::after {
+.metodo-step::after {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(0);
@@ -1032,4 +1032,27 @@ footer { background: var(--dark); color: white; padding: 40px 20px; text-align: 
         gap: 10px;
     }
 }
+
+/* 1. The Jump Animation */
+@keyframes stepJump {
+    0%, 20% { 
+        transform: translateY(0) scale(1); 
+    }
+    10% { 
+        transform: translateY(-20px) scale(1.1); /* The peak of the jump */
+        filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2));
+    }
+}
+
+/* 2. Apply to the icons */
+.step-icon {
+    animation: stepJump 4s infinite; /* Total cycle time */
+}
+
+/* 3. Staggered Delays (The "Next Step" logic) */
+.metodo-step:nth-child(1) .step-icon { animation-delay: 0s; }
+.metodo-step:nth-child(2) .step-icon { animation-delay: 1s; }
+.metodo-step:nth-child(3) .step-icon { animation-delay: 2s; }
+.metodo-step:nth-child(4) .step-icon { animation-delay: 3s; }
+
 
