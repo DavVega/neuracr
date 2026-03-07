@@ -367,7 +367,7 @@ body {
 }
 
 .dark p {
-    font-size: 1.4rem;
+    /*font-size: 1.4rem;*/
     font-weight: 300;
     letter-spacing: 5px; /* Más espaciado para un look más premium/minimalista */
     color: #cbd5e1;
@@ -917,7 +917,7 @@ footer { background: var(--dark); color: white; padding: 40px 20px; text-align: 
 .metodo-subtitle {
   color: #94a3b8;
   margin-bottom: 80px;
-  font-size: 0.5rem;
+  font-size: 1.1rem;
 }
 
 /* Timeline */
@@ -962,7 +962,7 @@ footer { background: var(--dark); color: white; padding: 40px 20px; text-align: 
   font-size: 28px;
   color: #3b82f6;
   transition: 0.4s ease;
-  border: 1px solid rgba(59,130,246,0.2);
+  border: 2px solid rgba(59,130,246,0.2);
 }
 
 .metodo-step h3 {
@@ -1000,3 +1000,36 @@ footer { background: var(--dark); color: white; padding: 40px 20px; text-align: 
   margin-right: auto;
   transition: 0.3s ease;
 }
+/* Media Query para Móviles */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Apila logo y enlaces */
+        gap: 15px;
+        padding: 20px 5%;
+    }
+
+    .nav-links {
+        gap: 12px;
+        font-size: 14px;
+        flex-wrap: wrap; /* Evita que los links se salgan */
+        justify-content: center;
+    }
+
+    .hero {
+        height: auto;
+        padding: 100px 20px;
+    }
+
+    .dark h2 {
+        font-size: 2rem; /* Tamaño de letra más razonable */
+    }
+
+    .section {
+        padding: 60px 5%; /* Menos espacio muerto a los lados */
+    }
+
+    .social-icons {
+        gap: 10px;
+    }
+}
+
