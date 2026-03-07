@@ -917,7 +917,7 @@ footer { background: var(--dark); color: white; padding: 40px 20px; text-align: 
 .metodo-subtitle {
   color: #94a3b8;
   margin-bottom: 80px;
-  font-size: 1.1rem;
+  font-size: 0.5rem;
 }
 
 /* Timeline */
