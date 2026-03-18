@@ -168,7 +168,7 @@ footer {
     --text-dim: #4a5568;
 }
 .footer-moderno {
-    background: #1a1a1a; /* Fondo oscuro elegante */
+    background: rgb(27,32,43) /* Fondo oscuro elegante */
     color: #ffffff;
     padding: 40px 20px;
     text-align: center;
