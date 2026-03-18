@@ -183,14 +183,6 @@ footer {
     align-items: center;
     gap: 20px;
 }
-
-.footer-moderno {
-    background: #0a0a0a;
-    padding: 40px 0;
-    text-align: center;
-    color: white;
-}
-
 /* Contenedor principal */
 .social-icons {
     display: flex;
