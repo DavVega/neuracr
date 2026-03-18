@@ -355,7 +355,6 @@ body {
     /* Texto con el gradiente de tus botones */
     background: linear-gradient(90deg, var(--primary), var(--accent));
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
 .dark p {
@@ -533,7 +532,7 @@ body {
 
 /* Título de la sección */
 #contacto h2 {
-    background: linear-gradient(90deg, var(--primary), var(--accent));
+    background: #007bff;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 20px;
@@ -562,7 +561,7 @@ body {
     letter-spacing: -1px;      /* Espaciado moderno y compacto */
     
     /* Aplicamos el gradiente de tus botones al texto */
-    background: linear-gradient(90deg, var(--primary), var(--accent));
+    background: #007bff;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     
