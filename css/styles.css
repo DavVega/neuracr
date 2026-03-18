@@ -605,7 +605,7 @@ body {
     z-index: 1;
 }
 
-footer { background: var(--dark); color: white; padding: 40px 20px; text-align: center; }
+footer { background: var(--text-main); color: white; padding: 40px 20px; text-align: center; }
 
 /* --- BOTÓN SUBIR (Back to Top) --- */
 #scrollTopBtn {
@@ -891,7 +891,7 @@ footer { background: var(--dark); color: white; padding: 40px 20px; text-align: 
     line-height: 1.2;
 }
 .section.dark {
-  background: linear-gradient(135deg, #0f172a, #0b1120);
+  background: rgb(48,58,75);
   padding: 120px 10%;
   color: #e5e7eb;
   position: relative;
